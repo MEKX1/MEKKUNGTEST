@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>MEKKUNG PANEL</title>
+    <style>
+        body { background: #121212; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .panel { background: #1a1a1a; width: 300px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .header { background: #ff9800; padding: 15px; text-align: center; font-weight: bold; color: black; }
+        .content { padding: 20px; }
+        input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin-bottom: 10px; border: none; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #ff9800; border: none; font-weight: bold; cursor: pointer; }
+        .menu-item { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        .hidden { display: none; }
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #444; transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #ff9800; }
+        input:checked + .slider:before { transform: translateX(20px); }
+        input[type=range] { width: 100%; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="login" class="panel">
+        <div class="header">MEKKUNG LOGIN</div>
+        <div class="content">
+            <input type="text" id="user" placeholder="Username">
+            <input type="password" id="pass" placeholder="Password">
+            <button onclick="login()">เข้าสู่ระบบ</button>
+        </div>
+    </div>
+    <div id="menu" class="panel hidden">
+        <div class="header">MEKKUNG PANEL</div>
+        <div class="content">
+            <div class="menu-item"><span>H.S</span> <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            <div class="menu-item"><span>BODY</span> <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            <div class="menu-item"><span>HEADSHOT V1</span> <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            <hr style="border: 0; border-top: 1px solid #444; margin: 15px 0;">
+            <p>HIGH SENSITIVTY</p>
+            <input type="range" min="1" max="3" step="1">
+            <p>SPEED HACK</p>
+            <input type="range" min="1" max="3" step="1">
+        </div>
+        <div class="header">YOUTUBE : MEKKUNG</div>
+    </div>
+    <script>
+        function login() {
+            var u = document.getElementById('user').value;
+            var p = document.getElementById('pass').value;
+            if (u === "MEKKUNG" && p === "MEKKUNGPANEL") {
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('menu').classList.remove('hidden');
+            } else {
+                alert("ชื่อหรือรหัสผ่านไม่ถูกต้อง!");
+            }
+        }
+    </script>
+</body>
+</html>
